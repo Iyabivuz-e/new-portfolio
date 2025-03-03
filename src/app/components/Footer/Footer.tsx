@@ -9,6 +9,7 @@ import {
   Facebook,
   Phone,
 } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -93,44 +94,36 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href="/"
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/about"
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/services"
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/portfolio"
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
                   Portfolio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blog"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Blog
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
