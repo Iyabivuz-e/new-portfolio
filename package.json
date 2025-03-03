@@ -15,14 +15,17 @@
     "@mui/material": "^6.4.6",
     "lucide-react": "^0.477.0",
     "next": "14.2.3",
+    "nodemailer": "^6.10.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "typed.js": "^2.1.0"
+    "typed.js": "^2.1.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^20.17.23",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

@@ -25,20 +25,6 @@ const Experience = () => {
       description:
         "Developed and maintained web applications using MERN stack.",
     },
-    // {
-    //   icon: <Cpu className="w-6 h-6 text-white" />,
-    //   title: "AI/ML Engineer",
-    //   company: "Data Minds",
-    //   date: "2022 - Present",
-    //   description: "Designed and implemented machine learning models.",
-    // },
-    // {
-    //   icon: <Rocket className="w-6 h-6 text-white" />,
-    //   title: "Freelance Developer",
-    //   company: "Self-Employed",
-    //   date: "2021 - Present",
-    //   description: "Working on diverse projects for clients worldwide.",
-    // },
   ];
 
   return (
