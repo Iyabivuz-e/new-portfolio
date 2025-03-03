@@ -1,9 +1,10 @@
 "use client";
-import { Code, Terminal, Palette, Settings } from "lucide-react";
+import { Terminal, Palette, Settings } from "lucide-react";
+import Image from "next/image";
 
 const About = () => {
   return (
-    <section className="py-16 bg-gray-100">
+    <section id="about" className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -15,25 +16,32 @@ const About = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Left Side: Image or Graphic */}
+          {/* Profile Picture Container */}
           <div className="flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-              <div className="absolute w-64 h-64 md:w-80 md:h-80 bg-white/10 backdrop-blur-sm rounded-full"></div>
-              <Code className="w-20 h-20 text-white" />
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
+              <Image
+                src="/pic.jpg"
+                alt="Your profile picture"
+                className="w-full h-full object-cover"
+                width={70}
+                height={70}
+              />
             </div>
           </div>
 
           {/* Right Side: Content */}
           <div className="space-y-6">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Hey there! I’m{" "}
-              <span className="font-bold text-blue-500">Dieudonne</span>, a
-              passionate{" "}
-              <span className="font-bold text-purple-500">
+              I’m a passionate{" "}
+              <span className="font-bold text-blue-500">
                 Software Developer
+              </span>
+              ,{" "}
+              <span className="font-bold text-purple-500">
+                Full-Stack Developer
               </span>{" "}
               and{" "}
-              <span className="font-bold text-green-500">Full-Stack Developer</span>{" "}
+              <span className="font-bold text-green-500">AI/ML Enthiast</span>{" "}
               with a love for creating beautiful, functional, and user-friendly
               experiences. I thrive on solving problems and turning ideas into
               reality through code and design.
@@ -57,7 +65,7 @@ const About = () => {
 
             {/* Call-to-Action Button */}
             <div className="mt-6">
-              <button className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
+              <button className="px-6 cursor-pointer py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
                 Let’s Build Something Awesome!
               </button>
             </div>

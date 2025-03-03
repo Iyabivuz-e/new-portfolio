@@ -1,5 +1,5 @@
 "use client";
-import { Briefcase, Code, Cpu, GraduationCap, Rocket } from "lucide-react";
+import { Briefcase, Code, GraduationCap } from "lucide-react";
 
 const Experience = () => {
   const experiences = [

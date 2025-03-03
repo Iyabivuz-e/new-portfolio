@@ -26,7 +26,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 bg-white px-16 max-md:py-8 max-md:gap-3">
+    <section
+      id="hero"
+      className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 bg-white px-16 max-md:py-8 max-md:gap-3"
+    >
       {/* Left Section: Text and Buttons */}
       <div className="flex-1 text-center md:text-left">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
@@ -74,7 +77,7 @@ const Hero = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
