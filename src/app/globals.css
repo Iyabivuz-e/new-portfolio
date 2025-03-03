@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: 'Inter', sans-serif;
+  --font-fira-code: 'Fira Code', monospace;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--background);
+  background: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+
+}
+
+/* Animations */
+
+@keyframes changeText {
+  0% { content: "Software Developer"; }
+  33% { content: "Fronted Developer"; }
+  66% { content: "Backend Developer"; }
+  100% { content: "AI/ML Admirer"; }
+}
+
+.role-text::after {
+  content: "";
+  animation: changeText 6s infinite steps(1);
+}
