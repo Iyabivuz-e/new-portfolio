@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-// import { Mail, Linkedin, Github, Twitter } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
