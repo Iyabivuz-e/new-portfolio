@@ -35,7 +35,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-6 py-3 sm:px-12 lg:px-20 z-50">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between">
           {/* Logo or Name */}
           <Link href="/" className="flex items-center gap-2">
             <motion.div
