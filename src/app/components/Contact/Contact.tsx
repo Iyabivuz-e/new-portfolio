@@ -89,9 +89,6 @@ const Contact = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">
               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Name
-                </label>
                 <input
                   type="text"
                   name="name"
@@ -103,9 +100,6 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Email
-                </label>
                 <input
                   type="email"
                   name="email"
@@ -117,9 +111,6 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Message
-                </label>
                 <textarea
                   name="message"
                   value={formData.message}

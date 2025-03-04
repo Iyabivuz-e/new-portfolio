@@ -37,7 +37,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-300 px-16 max-sm:px-10 max-md:py-32 -z-10 max-md:gap-3"
+      className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gradient-to-br from-blue-300 to-purple-300 px-16 max-sm:px-10 max-md:py-32 -z-10 max-md:gap-3"
     >
       {/* Left Section: Text and Buttons */}
       <motion.div

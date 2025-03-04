@@ -148,7 +148,7 @@ const Footer = () => {
             {/* Call To Action */}
             <button
               onClick={() => (window.location.href = "tel:+39 351 679 5037")}
-              className="mt-6 bg-blue-500 hover:bg-blue-700 text-gray-900 py-2 px-4 rounded-md flex cursor-pointer items-center justify-center transition-colors duration-200"
+              className="mt-6 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md flex cursor-pointer items-center justify-center transition-colors duration-200"
             >
               <Phone className="w-4 h-4 mr-2" />
               <span>Call Now</span>
