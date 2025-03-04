@@ -1,30 +1,44 @@
 "use client";
-import { Briefcase, Code, GraduationCap } from "lucide-react";
+import { Code, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Experience = () => {
   const experiences = [
     {
       icon: <GraduationCap className="w-6 h-6 text-white" />,
+      title: "Master of Computer Science - Artificial Intelligence",
+      company: "University of Pisa",
+      location: "Pisa, Italy",
+      date: "2024 - Present",
+      description:
+        "Currently furthering my skills and knowledge in AI, focusing on advanced topics and research to enhance my expertise in artificial intelligence and machine learning.",
+    },
+    {
+      icon: <GraduationCap className="w-6 h-6 text-white" />,
       title: "Bachelor of Computer Application",
       company: "Kalinga Institute Of Industrial Technology",
-      date: "2021 - 2021",
-      description: "Gained th.",
+      location: "Odisha, India",
+      date: "2021 - 2024",
+      description:
+        "Gained hands-on experience in software development and web development, building a strong foundation in programming and project management.",
     },
     {
       icon: <Code className="w-6 h-6 text-white" />,
       title: "Frontend Web Development Intern",
       company: "Computer Engineering Forum.",
-      date: "2023 - 2024",
-      description: "Built responsive UIs using React and Tailwind CSS.",
+      location: "Nairobi, Kenya",
+      date: "October 2023 - April 2024",
+      description:
+        "Developed and maintained a CEF's frontend a highly-traffic web application using ReactJs, and CSS. Gained valuable experience in frontend web development, including designing and developing complex components and optimizing application performance.",
     },
     {
-      icon: <Briefcase className="w-6 h-6 text-white" />,
+      icon: <Code className="w-6 h-6 text-white" />,
       title: "Web Development Intern",
       company: "SYNC' INTERN",
+      location: "Uttar Pradesh, India",
       date: "From September - October 2023",
       description:
-        "Developed and maintained web applications using MERN stack.",
+        "Developed interns' web development skills in HTML, CSS, JavaScript, and ReactJS through a comprehensive four-task program, which equips them with practical experience to excel in the field."
     },
   ];
 
@@ -77,6 +91,7 @@ const Experience = () => {
                     {exp.title}
                   </h3>
                   <p className="text-lg text-gray-700 mt-2">{exp.company}</p>
+                  <p className="text-lg text-gray-700 mt-2">{exp.location}</p>
                   <p className="text-sm text-gray-500 mt-1">{exp.date}</p>
                   <p className="mt-4 text-gray-700">{exp.description}</p>
                 </div>
