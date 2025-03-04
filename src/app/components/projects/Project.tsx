@@ -7,10 +7,10 @@ const Projects = () => {
   const projects = [
     {
       image: "/ClassTap.png",
-      title: "Portfolio Website",
+      title: "ClassTap",
       description:
-        "A personal portfolio website showcasing my skills and projects.",
-      tools: "Next.js, Tailwind CSS",
+        "In partnership with a 'Word Mission High School' in Kigali-Rwanda, I Developed a student attendance management system utilizing RFID cards for efficient attendance tracking. Built with Next.js, MongoDB, Tailwind CSS, and DaisyUI, the platform enables students to record their attendance seamlessly, while providing the Director of Studies with a comprehensive dashboard to manage and monitor attendance records effectively..",
+      tools: "Next.ts, Tailwind CSS, MongoDB",
       // liveLink: "https://example.com",
       githubLink: "https://github.com/Iyabivuz-e/ClassTap",
     },
@@ -18,8 +18,8 @@ const Projects = () => {
       image: "/KeetEats.png",
       title: "KiitEats",
       description:
-        "A full-stack e-commerce platform with user authentication and payment integration.",
-      tools: "React, Node.js, MongoDB",
+        "I developed KiitEats, a full-stack web application for KIIT University students, using React.js, Tailwind CSS, Node.js, Express, and MongoDB. The platform optimizes meal ordering with an intuitive interface, location-based services for nearby food courts, and seamless stripe payment integration, addressing the growing demand for convenient online food services.",
+      tools: "React.js, Node.js, MongoDB",
       liveLink: "https://kiiteats.vercel.app/",
       githubLink: "https://github.com/Iyabivuz-e/KiitEats",
     },
@@ -27,8 +27,8 @@ const Projects = () => {
       image: "/realEstate.png",
       title: "Jephte Houses Ltd.",
       description:
-        "A cross-platform mobile app for task management with offline support.",
-      tools: "React Native, Firebase",
+        "Developed and maintained a full-stack real estate website utilizing Next.js, Tailwind CSS, and MongoDB. Enhanced user experience by streamlining the search process, integrating a contact form, and adding features such as a map view and detailed property pages with photos, descriptions, and amenities. Gained hands-on experience in web development, including creating a custom API to interface with a third-party database.",
+      tools: "React.js, SCSS",
       liveLink: "https://jephte-house-ltd.netlify.app/",
       githubLink: "https://github.com/Iyabivuz-e/Real-Estate",
     },
@@ -36,7 +36,7 @@ const Projects = () => {
       image: "/DioEats.png",
       title: "DioEats",
       description:
-        "An AI-powered chatbot for customer support using natural language processing.",
+        "Developed a responsive food ordering platform using React.js and Tailwind CSS, focusing on a seamless user experience. Implemented dynamic components for interactive browsing and utilized Tailwind's utility-first classes for efficient styling. The project is hosted on Netlify, ensuring optimal performance and accessibility.",
       tools: "Python, TensorFlow, Flask",
       liveLink: "https://dioeats.netlify.app/",
       githubLink: "https://github.com/Iyabivuz-e/Tailwind-Recipe-Simple-App",
