@@ -1,36 +1,55 @@
 "use client";
 import { Terminal, Palette, Settings } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="py-16 bg-gray-100">
+    <section
+      id="about"
+      className="py-16 bg-gradient-to-br from-blue-300 to-white"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             About Me
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             A little bit about who I am and what I do.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Profile Picture Container */}
-          <div className="flex justify-center">
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
               <Image
                 src="/pic.jpg"
                 alt="Your profile picture"
-                className="w-full h-full object-cover"
-                width={70}
-                height={70}
+                className="w-full h-full object-cover rounded-full border-gray-100 border-8"
+                width={500}
+                height={500}
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side: Content */}
-          <div className="space-y-6">
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
             <p className="text-lg text-gray-700 leading-relaxed">
               I’m a passionate{" "}
               <span className="font-bold text-blue-500">
@@ -49,27 +68,47 @@ const About = () => {
 
             {/* Skills Icons */}
             <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+              <motion.div
+                className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1 }}
+              >
                 <Terminal className="w-5 h-5 text-blue-500" />
                 <span className="text-gray-700">Coding</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+              >
                 <Palette className="w-5 h-5 text-purple-500" />
                 <span className="text-gray-700">Design</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+              >
                 <Settings className="w-5 h-5 text-green-500" />
                 <span className="text-gray-700">Problem Solving</span>
-              </div>
+              </motion.div>
             </div>
 
             {/* Call-to-Action Button */}
-            <div className="mt-6">
+            <motion.div
+              className="mt-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 1.6 }}
+            >
               <button className="px-6 cursor-pointer py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
                 Let’s Build Something Awesome!
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

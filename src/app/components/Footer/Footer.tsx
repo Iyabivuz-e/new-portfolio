@@ -60,15 +60,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-12 bg-gray-900 text-gray-300">
+    <footer className="py-12 bg-gradient-to-br from-blue-300 to-blue-00 text-gray-900">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
           <div className="flex flex-col">
-            <h3 className="text-xl font-bold text-white mb-4">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
               Dieudonne Iyabivuze
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-900 mb-4">
               Building innovative solutions for the web and beyond.
             </p>
             <div className="flex space-x-4">
@@ -79,7 +79,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow on ${link.name}`}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-gray-900 hover:text-gray-500 transition-colors duration-200"
                 >
                   {link.icon}
                 </a>
@@ -89,14 +89,14 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="flex flex-col">
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <h3 className="text-lg font-semibold text-grey-900 mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-gray-700 hover:text-gray-500 transition-colors duration-200"
                 >
                   Home
                 </Link>
@@ -104,7 +104,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-gray-700 hover:text-gray-500 transition-colors duration-200"
                 >
                   About
                 </Link>
@@ -112,7 +112,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-gray-700 hover:text-gray-500 transition-colors duration-200"
                 >
                   Services
                 </Link>
@@ -120,7 +120,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/portfolio"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  className="text-gray-700 hover:text-gray-500 transition-colors duration-200"
                 >
                   Portfolio
                 </Link>
@@ -130,13 +130,13 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div className="flex flex-col">
-            <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact</h3>
             <ul className="space-y-3">
               {contactInfo.map((item) => (
                 <li key={item.method}>
                   <a
                     href={item.href}
-                    className="flex items-center text-gray-400 hover:text-white transition-colors duration-200"
+                    className="flex items-center text-gray-700 hover:text-gray-500 transition-colors duration-200"
                   >
                     {item.icon}
                     <span>{item.value}</span>
@@ -148,7 +148,7 @@ const Footer = () => {
             {/* Call To Action */}
             <button
               onClick={() => (window.location.href = "tel:+39 351 679 5037")}
-              className="mt-6 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md flex cursor-pointer items-center justify-center transition-colors duration-200"
+              className="mt-6 bg-blue-500 hover:bg-blue-700 text-gray-900 py-2 px-4 rounded-md flex cursor-pointer items-center justify-center transition-colors duration-200"
             >
               <Phone className="w-4 h-4 mr-2" />
               <span>Call Now</span>
@@ -161,42 +161,10 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-400 mb-4 md:mb-0">
+          <p className="text-gray-900 mb-4 md:mb-0">
             © {currentYear} Dieudonne Iyabivuze. All rights reserved.
           </p>
-
-          {/* <div className="flex space-x-6">
-            <a
-              href="/privacy"
-              className="text-gray-400 hover:text-white transition-colors duration-200"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="/terms"
-              className="text-gray-400 hover:text-white transition-colors duration-200"
-            >
-              Terms of Service
-            </a>
-          </div> */}
         </div>
-
-        {/* Cookie Consent Banner - Uncomment when needed */}
-        {/* 
-        <div className="fixed bottom-0 left-0 right-0 bg-gray-800 p-4 flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-300 mb-4 md:mb-0">
-            This website uses cookies to ensure you get the best experience.
-          </p>
-          <div className="flex space-x-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors duration-200">
-              Accept
-            </button>
-            <button className="bg-transparent border border-gray-600 text-gray-300 py-2 px-4 rounded-md hover:bg-gray-700 transition-colors duration-200">
-              Preferences
-            </button>
-          </div>
-        </div>
-        */}
       </div>
     </footer>
   );

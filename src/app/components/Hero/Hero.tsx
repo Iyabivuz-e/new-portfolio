@@ -1,9 +1,11 @@
 "use client";
+
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import FastForwardIcon from "@mui/icons-material/FastForward";
 import Button from "@mui/material/Button";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const textRef = useRef(null);
@@ -25,58 +27,81 @@ const Hero = () => {
     return () => typed.destroy();
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="hero"
-      className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 bg-white px-16 max-md:py-8 max-md:gap-3"
+      className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-300 px-16 max-sm:px-10 max-md:py-32 -z-10 max-md:gap-3"
     >
       {/* Left Section: Text and Buttons */}
-      <div className="flex-1 text-center md:text-left">
+      <motion.div
+        className="flex-1 text-center md:text-left"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
           Hello, I&apos;m Dieudonne
         </h1>
-        <p className="mt-4 text-xl md:text-2xl text-gray-500 leading-relaxed">
+        <p className="mt-4 text-xl md:text-2xl text-gray-700 leading-relaxed">
           <span ref={textRef}></span>
         </p>
         {/* Short Tagline */}
-        <p className="mt-4 text-lg md:text-xl text-gray-600">
+        <p className="mt-4 text-lg md:text-xl text-gray-700">
           I create beautiful, user-friendly experiences.
         </p>
         {/* Call-to-Action Buttons */}
-        <div className="mt-8 flex gap-4 justify-center md:justify-start">
+        <div className="mt-8 flex gap-4 justify-center md:justify-start max-sm:flex-col">
           <Button
             variant="contained"
-            className="bg-blue-500 hover:bg-blue-600 text-white"
+            className="bg-purple-500 hover:bg-purple-600 text-white"
           >
-            View My Work
+            View My Resume
           </Button>
           <Button
+            onClick={() => scrollToSection("contact")}
             variant="outlined"
             className="border-blue-500 text-blue-500 hover:bg-blue-50"
           >
             Contact Me
           </Button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Middle Section: Icon */}
-      <div className="flex flex-1 items-center justify-center my-8 md:my-0 md:mx-8 animate-bounce">
+      <motion.div
+        className="flex flex-1 items-center justify-center my-8 md:my-0 md:mx-8"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
         <FastForwardIcon className="w-50 h-50 text-blue-500" />
-      </div>
+      </motion.div>
 
       {/* Right Section: Image */}
-      <div className="flex-1 flex justify-center md:justify-end">
+      <motion.div
+        className="flex-1 flex justify-center md:justify-end"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
         <div className="w-64 h-64 md:w-100 md:h-100 relative">
           <Image
             src="/icon.jpg"
-            alt="Dieudonne"
+            alt="Dieudonne Coding"
             layout="fill"
             objectFit="cover"
             className="rounded-full border-4 border-white shadow-lg"
             priority
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

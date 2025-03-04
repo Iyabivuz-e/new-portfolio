@@ -50,7 +50,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100"
+      className="py-20 bg-gradient-to-br from-gray-100 to-blue-300"
     >
       <div className="container mx-auto px-6 sm:px-12 lg:px-20">
         <motion.div
@@ -69,7 +69,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="max-w-3xl mx-auto bg-white/80 backdrop-blur-lg shadow-2xl rounded-3xl p-8 sm:p-12"
+          className="max-w-3xl mx-auto backdrop-blur-lg bg-gradient-to-br from-blue-300 to-gray-100 shadow-2xl rounded-3xl p-8 sm:p-12"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -134,7 +134,7 @@ const Contact = () => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 cursor-pointer text-lg bg-indigo-500 text-white font-semibold rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-400 transition-all flex items-center justify-center gap-2"
+                  className="w-full px-6 py-3 cursor-pointer text-lg bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-indigo-400 transition-all flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

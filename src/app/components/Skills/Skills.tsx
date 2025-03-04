@@ -1,14 +1,6 @@
 "use client";
-import {
-  Code,
-  Cpu,
-  Database,
-  GitBranch,
-  Server,
-//   Smartphone,
-  Cloud,
-//   BrainCircuit,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { Code, Cpu, Database, GitBranch, Server, Cloud } from "lucide-react";
 
 const Skills = () => {
   const skills = [
@@ -16,7 +8,8 @@ const Skills = () => {
       icon: <Code className="w-8 h-8 text-blue-500" />,
       title: "Frontend Development",
       description: "Building responsive and interactive user interfaces.",
-      tools: "HTML, CSS, JavaScript, TypeScript, React.js, Next.js, Tailwind CSS",
+      tools:
+        "HTML, CSS, JavaScript, TypeScript, React.js, Next.js, Tailwind CSS",
     },
     {
       icon: <Server className="w-8 h-8 text-purple-500" />,
@@ -51,22 +44,33 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-16 bg-gray-50">
+    <section
+      id="skills"
+      className="py-16 bg-gray-50 bg-gradient-to-br from-blue-300 to-purple-300"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             My Skills
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Technologies and tools I work with.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              className="bg-white bg-gradient-to-br from-blue-500 to-purple-300 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <div className="flex items-center justify-center w-12 h-12 mb-4 bg-gray-100 rounded-full">
                 {skill.icon}
@@ -78,7 +82,7 @@ const Skills = () => {
               <p className="text-sm text-gray-500">
                 <span className="font-medium">Tools:</span> {skill.tools}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

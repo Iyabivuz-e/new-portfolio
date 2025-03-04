@@ -21,7 +21,7 @@ const Navbar = () => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false); // Close mobile menu after clicking a link
+      setIsMobileMenuOpen(false); 
     }
   };
 
@@ -34,7 +34,7 @@ const Navbar = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-6 sm:px-12 lg:px-20 z-50">
+      <div className="container mx-auto px-6 py-3 sm:px-12 lg:px-20 z-50">
         <div className="flex items-center justify-between py-4">
           {/* Logo or Name */}
           <Link href="/" className="flex items-center gap-2">

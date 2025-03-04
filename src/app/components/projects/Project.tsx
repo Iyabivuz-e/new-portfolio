@@ -1,6 +1,7 @@
 "use client";
 import { Globe, Github } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
@@ -43,22 +44,33 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-16 bg-gray-50">
+    <section
+      id="projects"
+      className="py-16 bg-gray-50 bg-gradient-to-br from-gray-100 to-blue-300"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             My Projects
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Some of the projects I’ve worked on.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all overflow-hidden"
+              className="bg-white bg-gradient-to-br from-gray-100 to-blue-300 rounded-xl shadow-lg hover:shadow-xl transition-all overflow-hidden"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               {/* Project Image */}
               <div className="relative h-48">
@@ -111,7 +123,7 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
