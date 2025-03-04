@@ -25,7 +25,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://dieudonnei.vercel.app/", {
+      const response = await fetch("/https://dieudonnei.vercel.app/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
