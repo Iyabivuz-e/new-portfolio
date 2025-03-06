@@ -6,6 +6,7 @@ import Typed from "typed.js";
 import FastForwardIcon from "@mui/icons-material/FastForward";
 import Button from "@mui/material/Button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Hero = () => {
   const textRef = useRef(null);
@@ -13,10 +14,10 @@ const Hero = () => {
   useEffect(() => {
     const typed = new Typed(textRef.current, {
       strings: [
-        "Software Developer",
-        "Frontend Developer",
-        "Backend Developer",
-        "AI/ML Admirer",
+        "Software Developer...",
+        "Frontend Developer...",
+        "Backend Developer...",
+        "AI/ML Admirer...",
       ],
       typeSpeed: 100,
       backSpeed: 50,
@@ -58,12 +59,11 @@ const Hero = () => {
         </p>
         {/* Call-to-Action Buttons */}
         <div className="mt-8 flex gap-4 justify-center md:justify-start max-sm:flex-col">
-          <Button
-            variant="contained"
-            className="bg-purple-500 hover:bg-purple-600 text-white"
+          <Link href="https://drive.google.com/file/d/1WTlPo1F5hVSeNjaY27vehJjp4AvVMaGr/view?usp=sharing"
+            className="bg-blue-500 shadow-2xs hover:shadow-2xl transition-all uppercase  hover:bg-blue-600 text-white px-4 py-2 text-sm rounded-sm"
           >
             View My Resume
-          </Button>
+          </Link>
           <Button
             onClick={() => scrollToSection("contact")}
             variant="outlined"

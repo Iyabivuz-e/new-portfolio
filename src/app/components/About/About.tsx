@@ -4,6 +4,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const About = () => {
+
+   const scrollToSection = (id: string) => {
+     const section = document.getElementById(id);
+     if (section) {
+       section.scrollIntoView({ behavior: "smooth" });
+     }
+   };
+   
   return (
     <section
       id="about"
@@ -114,7 +122,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 1.6 }}
             >
               <button
-                id="contact"
+                onClick={() => scrollToSection("contact")}
                 className="px-6 cursor-pointer py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
               >
                 Let’s create something that doesn’t just work —{" "}
