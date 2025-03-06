@@ -1,5 +1,5 @@
 "use client";
-import { Terminal, Palette, Settings } from "lucide-react";
+import { Terminal, Palette, Settings, Database, Cpu } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -61,9 +61,10 @@ const About = () => {
               </span>{" "}
               and{" "}
               <span className="font-bold text-green-500">AI/ML Enthiast</span>{" "}
-              with a love for creating beautiful, functional, and user-friendly
-              experiences. I thrive on solving problems and turning ideas into
-              reality through code and design.
+              who loves turning big ideas into cool, easy-to-use apps. Whether
+              I’m building websites with React and Node.js, creating smart AI
+              tools, or designing smooth systems, I’m all about making tech work
+              beautifully.
             </p>
 
             {/* Skills Icons */}
@@ -95,6 +96,14 @@ const About = () => {
                 <Settings className="w-5 h-5 text-green-500" />
                 <span className="text-gray-700">Problem Solving</span>
               </motion.div>
+              <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all">
+                <Cpu className="w-5 h-5 text-orange-500" />
+                <span className="text-gray-700">AI/ML</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all">
+                <Database className="w-5 h-5 text-pink-500" />
+                <span className="text-gray-700">Databases</span>
+              </div>
             </div>
 
             {/* Call-to-Action Button */}
@@ -104,8 +113,12 @@ const About = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.6 }}
             >
-              <button className="px-6 cursor-pointer py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
-                Let’s Build Something Awesome!
+              <button
+                id="contact"
+                className="px-6 cursor-pointer py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
+              >
+                Let’s create something that doesn’t just work —{" "}
+                <span className="text-gray-100 font-bold">it rocks!</span>
               </button>
             </motion.div>
           </motion.div>
