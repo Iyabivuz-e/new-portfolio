@@ -10,7 +10,7 @@ const Projects = () => {
       title: "ClassTap",
       description:
         "In partnership with a 'Word Mission High School' in Kigali-Rwanda, I Developed a student attendance management system utilizing RFID cards for efficient attendance tracking. Built with Next.js, MongoDB, Tailwind CSS, and DaisyUI, the platform enables students to record their attendance seamlessly, while providing the Director of Studies with a comprehensive dashboard to manage and monitor attendance records effectively..",
-      tools: "Next.ts, Tailwind CSS, MongoDB",
+      tools: "Next.ts, TailwindCSS, DaisyUI, MongoDB",
       // liveLink: "https://example.com",
       githubLink: "https://github.com/Iyabivuz-e/ClassTap",
     },
@@ -19,7 +19,7 @@ const Projects = () => {
       title: "KiitEats",
       description:
         "I developed KiitEats, a full-stack web application for KIIT University students, using React.js, Tailwind CSS, Node.js, Express, and MongoDB. The platform optimizes meal ordering with an intuitive interface, location-based services for nearby food courts, and seamless stripe payment integration, addressing the growing demand for convenient online food services.",
-      tools: "React.js, Node.js, MongoDB",
+      tools: "React.js, Node.js, TailwindCSS, MongoDB",
       liveLink: "https://kiiteats.vercel.app/",
       githubLink: "https://github.com/Iyabivuz-e/KiitEats",
     },
@@ -37,7 +37,7 @@ const Projects = () => {
       title: "DioEats",
       description:
         "Developed a responsive food ordering platform using React.js and Tailwind CSS, focusing on a seamless user experience. Implemented dynamic components for interactive browsing and utilized Tailwind's utility-first classes for efficient styling. The project is hosted on Netlify, ensuring optimal performance and accessibility.",
-      tools: "Python, TensorFlow, Flask",
+      tools: "React.js, TailwindCSS, Vite",
       liveLink: "https://dioeats.netlify.app/",
       githubLink: "https://github.com/Iyabivuz-e/Tailwind-Recipe-Simple-App",
     },
