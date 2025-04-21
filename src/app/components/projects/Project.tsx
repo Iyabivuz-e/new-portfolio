@@ -12,8 +12,8 @@ const Projects = () => {
         "A machine learning-powered web application that predicts a user's natural chronotype (morning person or night person) based on their daily habits and preferences. What makes Dozzy unique is its interactive feedback loop—users can vote on the accuracy of their prediction, and this data is used to retrain and improve the machine learning model periodically.",
       tools:
         "React.js, Vite, TailwindCSS, scikit-learn, Python - Flask, SQLite",
-      // liveLink: "https://example.com",
-      githubLink: "https://github.com/Iyabivuz-e/Dozzy",
+      liveLink: "https://dozzy.vercel.app",
+      // githubLink: "https://github.com/Iyabivuz-e/Dozzy",
     },
     {
       image: "/ClassTap.png",
