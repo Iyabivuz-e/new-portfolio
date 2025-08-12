@@ -8,7 +8,7 @@ import Skills from "./components/Skills/Skills";
 
 export default function Home() {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-x-hidden">
       <Hero/>
       <About/>
       <Skills/>

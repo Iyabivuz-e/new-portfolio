@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import image from "../../public/pic.jpg";
 
 const inter = Inter({
@@ -87,10 +88,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${firaCode.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
-        <Analytics />
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

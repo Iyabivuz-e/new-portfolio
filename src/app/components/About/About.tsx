@@ -1,136 +1,144 @@
 "use client";
+
 import { Terminal, Palette, Settings, Database, Cpu } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const About = () => {
+  const { theme } = useTheme();
 
-   const scrollToSection = (id: string) => {
-     const section = document.getElementById(id);
-     if (section) {
-       section.scrollIntoView({ behavior: "smooth" });
-     }
-   };
-   
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="about"
-      className="py-16 bg-gradient-to-br from-blue-300 to-white"
+      className={`py-24 ${
+        theme === 'dark'
+          ? 'bg-gradient-to-b from-gray-900 to-gray-800'
+          : 'bg-gradient-to-b from-gray-50 to-white'
+      }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: -50 }}
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            About Me
+          <h2 className={`text-5xl lg:text-6xl font-light mb-16 text-center ${
+            theme === 'dark' ? 'text-white' : 'text-gray-900'
+          }`}>
+            About
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            A little bit about who I am and what I do.
-          </p>
-        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Profile Picture Container */}
-          <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
-              <Image
-                src="/pic.jpg"
-                alt="Your profile picture"
-                className="w-full h-full object-cover rounded-full border-gray-100 border-8"
-                width={500}
-                height={500}
-              />
-            </div>
-          </motion.div>
-
-          {/* Right Side: Content */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <p className="text-lg text-gray-700 leading-relaxed">
-              I’m a passionate{" "}
-              <span className="font-bold text-blue-500">
-                Software Developer
-              </span>
-              ,{" "}
-              <span className="font-bold text-purple-500">
-                Full-Stack Developer
-              </span>{" "}
-              and{" "}
-              <span className="font-bold text-green-500">AI/ML Enthiast</span>{" "}
-              who loves turning big ideas into cool, easy-to-use apps. Whether
-              I’m building websites with React and Node.js, creating smart AI
-              tools, or designing smooth systems, I’m all about making tech work
-              beautifully.
-            </p>
-
-            {/* Skills Icons */}
-            <div className="flex flex-wrap gap-4">
-              <motion.div
-                className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1 }}
-              >
-                <Terminal className="w-5 h-5 text-blue-500" />
-                <span className="text-gray-700">Coding</span>
-              </motion.div>
-              <motion.div
-                className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-              >
-                <Palette className="w-5 h-5 text-purple-500" />
-                <span className="text-gray-700">Design</span>
-              </motion.div>
-              <motion.div
-                className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.4 }}
-              >
-                <Settings className="w-5 h-5 text-green-500" />
-                <span className="text-gray-700">Problem Solving</span>
-              </motion.div>
-              <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all">
-                <Cpu className="w-5 h-5 text-orange-500" />
-                <span className="text-gray-700">AI/ML</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all">
-                <Database className="w-5 h-5 text-pink-500" />
-                <span className="text-gray-700">Databases</span>
-              </div>
-            </div>
-
-            {/* Call-to-Action Button */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+            {/* Profile Picture */}
             <motion.div
-              className="mt-6"
+              className="flex justify-center lg:justify-start"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1.6 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="px-6 cursor-pointer py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
-              >
-                Let’s create something that doesn’t just work —{" "}
-                <span className="text-gray-100 font-bold">it rocks!</span>
-              </button>
+              <div className="w-64 h-64 relative">
+                <Image
+                  src="/pic.jpg"
+                  alt="Dieudonne"
+                  className={`w-full h-full object-cover rounded-2xl ${
+                    theme === 'dark' ? 'border border-gray-700' : 'border border-gray-200'
+                  }`}
+                  width={500}
+                  height={500}
+                />
+              </div>
             </motion.div>
-          </motion.div>
-        </div>
+
+            {/* Content */}
+            <motion.div
+              className="lg:col-span-2 space-y-8"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <div className="space-y-6">
+                <p className={`text-xl leading-relaxed ${
+                  theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                }`}>
+                  I'm a passionate{" "}
+                  <span className={`font-medium ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    Software Developer
+                  </span>
+                  ,{" "}
+                  <span className={`font-medium ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    Full-Stack Developer
+                  </span>{" "}
+                  and{" "}
+                  <span className={`font-medium ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  }`}>AI/ML Enthusiast</span>{" "}
+                  who loves turning big ideas into cool, easy-to-use apps.
+                </p>
+
+                <p className={`text-lg leading-relaxed ${
+                  theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                }`}>
+                  Whether I'm building websites with React and Node.js, creating smart AI
+                  tools, or designing smooth systems, I'm all about making tech work
+                  beautifully.
+                </p>
+              </div>
+
+              {/* Skills List */}
+              <motion.div
+                className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                {['Coding', 'Design', 'Problem Solving', 'AI/ML', 'Databases', 'Systems'].map((skill, index) => (
+                  <div
+                    key={skill}
+                    className={`text-center py-3 px-4 rounded-lg border transition-all hover:scale-105 ${
+                      theme === 'dark'
+                        ? 'bg-gray-800 border-gray-700 text-gray-300'
+                        : 'bg-gray-50 border-gray-200 text-gray-700'
+                    }`}
+                  >
+                    <span className="text-sm font-medium">{skill}</span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Call-to-Action Button */}
+              <motion.div
+                className="mt-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className={`px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                    theme === 'dark'
+                      ? 'bg-white text-gray-900 hover:bg-gray-100'
+                      : 'bg-gray-900 text-white hover:bg-gray-800'
+                  }`}
+                >
+                  Let's create something amazing together
+                </button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

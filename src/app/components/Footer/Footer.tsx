@@ -10,159 +10,121 @@ import {
   Phone,
 } from "lucide-react";
 import Link from "next/link";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const Footer = () => {
+  const { theme } = useTheme();
   const currentYear = new Date().getFullYear();
 
-  // Social media links configuration
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/iyabivuze/",
+      href: "https://www.linkedin.com/in/dieudonne-iyabivuze-b5b1b3252/",
       icon: <Linkedin className="w-5 h-5" />,
+      label: "LinkedIn Profile",
     },
     {
       name: "GitHub",
       href: "https://github.com/Iyabivuz-e",
       icon: <Github className="w-5 h-5" />,
+      label: "GitHub Profile",
     },
     {
       name: "Twitter",
-      href: "https://twitter.com/dieudonne_dev",
+      href: "https://x.com/dieudonnei_",
       icon: <Twitter className="w-5 h-5" />,
+      label: "Twitter Profile",
     },
     {
       name: "Instagram",
-      href: "https://instagram.com/dieudonne_dev",
+      href: "https://www.instagram.com/dieudonnei_/",
       icon: <Instagram className="w-5 h-5" />,
+      label: "Instagram Profile",
     },
     {
       name: "Facebook",
-      href: "https://facebook.com/dieudonne.iyabivuze",
+      href: "https://www.facebook.com/dieudonne.iyabivuze.5",
       icon: <Facebook className="w-5 h-5" />,
-    },
-  ];
-
-  // Contact information
-  const contactInfo = [
-    {
-      method: "Email",
-      value: "iyabivuzed@gmail.com",
-      href: "mailto:iyabivuzed@gmail.com",
-      icon: <Mail className="w-4 h-4 mr-2" />,
-    },
-    {
-      method: "Phone",
-      value: "+39 351 679 5037",
-      href: "tel:+39 351 679 5037",
-      icon: <Phone className="w-4 h-4 mr-2" />,
+      label: "Facebook Profile",
     },
   ];
 
   return (
-    <footer className="py-12 bg-gradient-to-br from-blue-300 to-blue-00 text-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
-          <div className="flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
-              Dieudonne Iyabivuze
+    <footer className={`py-16 border-t ${
+      theme === 'dark'
+        ? 'bg-gray-900 border-gray-800 text-gray-300'
+        : 'bg-white border-gray-200 text-gray-600'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <h3 className={`text-2xl font-light mb-4 ${
+              theme === 'dark' ? 'text-white' : 'text-gray-900'
+            }`}>
+              Dieudonne
             </h3>
-            <p className="text-gray-900 mb-4">
-              Building innovative solutions for the web and beyond.
+            <p className={`text-sm leading-relaxed max-w-md ${
+              theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            }`}>
+              Full-Stack Developer and AI/ML enthusiast passionate about creating
+              beautiful, user-friendly experiences that bridge design and functionality.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((link) => (
+          </div>
+
+          {/* Contact Information */}
+          <div>
+            <h4 className={`text-sm font-medium mb-4 uppercase tracking-wider ${
+              theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+            }`}>
+              Contact
+            </h4>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4" />
+                <span className="text-sm">dieudonnei@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">+39 351 5 8 8 8 8 8 8</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div>
+            <h4 className={`text-sm font-medium mb-4 uppercase tracking-wider ${
+              theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+            }`}>
+              Connect
+            </h4>
+            <div className="flex gap-3">
+              {socialLinks.map((link, index) => (
                 <a
-                  key={link.name}
+                  key={index}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Follow on ${link.name}`}
-                  className="text-gray-900 hover:text-gray-500 transition-colors duration-200"
+                  className={`p-2 rounded-lg border transition-all hover:scale-110 ${
+                    theme === 'dark'
+                      ? 'border-gray-700 hover:bg-gray-800'
+                      : 'border-gray-200 hover:bg-gray-50'
+                  }`}
+                  aria-label={link.label}
                 >
                   {link.icon}
                 </a>
               ))}
             </div>
           </div>
-
-          {/* Quick Links */}
-          <div className="flex flex-col">
-            <h3 className="text-lg font-semibold text-grey-900 mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/"
-                  className="text-gray-700 hover:text-gray-500 transition-colors duration-200"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-gray-700 hover:text-gray-500 transition-colors duration-200"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-gray-700 hover:text-gray-500 transition-colors duration-200"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/portfolio"
-                  className="text-gray-700 hover:text-gray-500 transition-colors duration-200"
-                >
-                  Portfolio
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Section */}
-          <div className="flex flex-col">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact</h3>
-            <ul className="space-y-3">
-              {contactInfo.map((item) => (
-                <li key={item.method}>
-                  <a
-                    href={item.href}
-                    className="flex items-center text-gray-700 hover:text-gray-500 transition-colors duration-200"
-                  >
-                    {item.icon}
-                    <span>{item.value}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            {/* Call To Action */}
-            <button
-              onClick={() => (window.location.href = "tel:+39 351 679 5037")}
-              className="mt-6 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md flex cursor-pointer items-center justify-center transition-colors duration-200"
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              <span>Call Now</span>
-            </button>
-          </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 my-6"></div>
-
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-900 mb-4 md:mb-0">
-            © {currentYear} Dieudonne Iyabivuze. All rights reserved.
+        {/* Copyright */}
+        <div className={`pt-8 border-t text-center ${
+          theme === 'dark' ? 'border-gray-800' : 'border-gray-200'
+        }`}>
+          <p className="text-sm">
+            &copy; {currentYear} Dieudonne Iyabivuze. All rights reserved.
           </p>
         </div>
       </div>

@@ -3,13 +3,14 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import FastForwardIcon from "@mui/icons-material/FastForward";
-import Button from "@mui/material/Button";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const Hero = () => {
   const textRef = useRef(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const typed = new Typed(textRef.current, {
@@ -38,72 +39,100 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gradient-to-br from-blue-300 to-purple-300 px-16 max-sm:px-10 max-md:py-32 -z-10 max-md:gap-3"
+      className={`min-h-screen pt-32 flex items-center justify-center relative ${
+        theme === 'dark'
+          ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900'
+          : 'bg-gradient-to-br from-white via-gray-50 to-white'
+      }`}
     >
-      {/* Left Section: Text and Buttons */}
-      <motion.div
-        className="flex-1 text-center md:text-left"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
-          Hello, I&apos;m Dieudonne
-        </h1>
-        <p className="mt-4 text-xl md:text-2xl text-gray-700 leading-relaxed">
-          <span ref={textRef}></span>
-        </p>
-        {/* Short Tagline */}
-        <p className="mt-4 text-lg md:text-xl text-gray-700">
-          I create beautiful, user-friendly experiences.
-        </p>
-        {/* Call-to-Action Buttons */}
-        <div className="mt-8 flex gap-4 justify-center md:justify-start max-sm:flex-col">
-          <Link href="https://drive.google.com/file/d/1WTlPo1F5hVSeNjaY27vehJjp4AvVMaGr/view?usp=sharing"
-            className="bg-blue-500 shadow-2xs hover:shadow-2xl transition-all uppercase  hover:bg-blue-600 text-white px-4 py-2 text-sm rounded-sm"
-          >
-            View My Resume
-          </Link>
-          <Button
-            onClick={() => scrollToSection("contact")}
-            variant="outlined"
-            className="border-blue-500 text-blue-500 hover:bg-blue-50"
-          >
-            Contact Me
-          </Button>
-        </div>
-      </motion.div>
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, ${theme === 'dark' ? 'white' : 'black'} 1px, transparent 0)`,
+          backgroundSize: '20px 20px'
+        }}></div>
+      </div>
 
-      {/* Middle Section: Icon */}
-      <motion.div
-        className="flex flex-1 items-center justify-center my-8 md:my-0 md:mx-8"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        <FastForwardIcon className="w-50 h-50 text-blue-500" />
-      </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Main Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h1
+              className={`text-6xl lg:text-8xl font-light mb-8 tracking-tight ${
+                theme === 'dark' ? 'text-white' : 'text-gray-900'
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Dieudonne
+            </motion.h1>
 
-      {/* Right Section: Image */}
-      <motion.div
-        className="flex-1 flex justify-center md:justify-end"
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
-        <div className="w-64 h-64 md:w-100 md:h-100 relative">
-          <Image
-            src="/icon.jpg"
-            alt="Dieudonne Coding"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-full border-4 border-white shadow-lg"
-            priority
-          />
+            <motion.div
+              className={`text-xl lg:text-2xl mb-6 font-light ${
+                theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <span ref={textRef}></span>
+            </motion.div>
+
+            <motion.p
+              className={`text-lg lg:text-xl mb-12 max-w-2xl mx-auto leading-relaxed ${
+                theme === 'dark' ? 'text-gray-500' : 'text-gray-500'
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              I create beautiful, user-friendly experiences that bridge the gap between design and functionality.
+            </motion.p>
+
+            {/* Call-to-Action Buttons */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <Link
+                href="https://drive.google.com/file/d/1WTlPo1F5hVSeNjaY27vehJjp4AvVMaGr/view?usp=sharing"
+                target="_blank"
+                className={`inline-flex items-center gap-3 px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                  theme === 'dark'
+                    ? 'bg-white text-gray-900 hover:bg-gray-100'
+                    : 'bg-gray-900 text-white hover:bg-gray-800'
+                }`}
+              >
+                <Download className="w-5 h-5" />
+                View Resume
+              </Link>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className={`inline-flex items-center gap-3 px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                  theme === 'dark'
+                    ? 'border border-gray-600 text-gray-300 hover:bg-gray-800'
+                    : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                <Mail className="w-5 h-5" />
+                Contact Me
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </motion.div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
+
+
 };
 
 export default Hero;

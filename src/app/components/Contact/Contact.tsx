@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, CheckCircle } from "lucide-react";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const Contact = () => {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,22 +15,23 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
@@ -36,12 +39,9 @@ const Contact = () => {
       if (response.ok) {
         setIsSubmitted(true);
         setFormData({ name: "", email: "", message: "" });
-      } else {
-        alert("Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Something went wrong. Please try again.");
+      console.error('Error submitting form:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -50,97 +50,151 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-br from-gray-100 to-blue-300"
+      className={`py-24 ${
+        theme === 'dark'
+          ? 'bg-gradient-to-b from-gray-900 to-gray-800'
+          : 'bg-gradient-to-b from-gray-50 to-white'
+      }`}
     >
-      <div className="container mx-auto px-6 sm:px-12 lg:px-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Let’s Connect
+          <h2 className={`text-5xl lg:text-6xl font-light mb-6 ${
+            theme === 'dark' ? 'text-white' : 'text-gray-900'
+          }`}>
+            Contact
           </h2>
-          <p className="mt-4 text-lg text-gray-700">
-            Have a project in mind? Let’s collaborate and create something
+          <p className={`text-lg max-w-2xl mx-auto ${
+            theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+          }`}>
+            Have a project in mind? Let's collaborate and create something
             extraordinary!
           </p>
         </motion.div>
 
         <motion.div
-          className="max-w-3xl mx-auto backdrop-blur-lg bg-gradient-to-br from-blue-300 to-gray-100 shadow-2xl rounded-3xl p-8 sm:p-12"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          className="max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           {isSubmitted ? (
-            <motion.div
-              className="text-center p-8 bg-green-50 rounded-xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-              <p className="text-green-600 font-semibold text-xl">
-                🎉 Thank you! Your message has been sent successfully.
+            <div className={`text-center p-12 rounded-2xl border ${
+              theme === 'dark'
+                ? 'bg-gray-800 border-gray-700'
+                : 'bg-white border-gray-200'
+            }`}>
+              <CheckCircle className={`w-16 h-16 mx-auto mb-6 ${
+                theme === 'dark' ? 'text-green-400' : 'text-green-500'
+              }`} />
+              <h3 className={`text-2xl font-semibold mb-4 ${
+                theme === 'dark' ? 'text-white' : 'text-gray-900'
+              }`}>
+                Message Sent!
+              </h3>
+              <p className={`text-lg ${
+                theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+              }`}>
+                Thank you for reaching out. I'll get back to you soon!
               </p>
-            </motion.div>
+            </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-xl shadow-sm bg-white/80 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-xl shadow-sm bg-white/80 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-              <div>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-xl shadow-sm bg-white/80 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
-                  placeholder="What’s on your mind?"
-                  required
-                ></textarea>
-              </div>
-              <div>
-                <motion.button
+            <form onSubmit={handleSubmit} className={`p-8 rounded-2xl border ${
+              theme === 'dark'
+                ? 'bg-gray-800/50 border-gray-700'
+                : 'bg-white border-gray-200'
+            }`}>
+              <div className="grid gap-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className={`block text-sm font-medium mb-2 ${
+                      theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 ${
+                        theme === 'dark'
+                          ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500'
+                          : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400'
+                      }`}
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className={`block text-sm font-medium mb-2 ${
+                      theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 ${
+                        theme === 'dark'
+                          ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500'
+                          : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400'
+                      }`}
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="message" className={`block text-sm font-medium mb-2 ${
+                    theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={6}
+                    className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 resize-none ${
+                      theme === 'dark'
+                        ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500'
+                        : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400'
+                    }`}
+                    placeholder="Tell me about your project..."
+                  />
+                </div>
+                <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 cursor-pointer text-lg bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-indigo-400 transition-all flex items-center justify-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${
+                    theme === 'dark'
+                      ? 'bg-white text-gray-900 hover:bg-gray-100'
+                      : 'bg-gray-900 text-white hover:bg-gray-800'
+                  }`}
                 >
                   {isSubmitting ? (
                     <>
-                      <Send className="w-5 h-5 animate-pulse" />
+                      <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
                       Sending...
                     </>
                   ) : (
                     <>
-                      <Mail className="w-5 h-5" />
+                      <Send className="w-5 h-5" />
                       Send Message
                     </>
                   )}
-                </motion.button>
+                </button>
               </div>
             </form>
           )}

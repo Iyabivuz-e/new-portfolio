@@ -2,9 +2,21 @@
 import { Globe, Github } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const Projects = () => {
+  const { theme } = useTheme();
   const projects = [
+    {
+      image: "/deskribeai.png",
+      title: "Deskribeai",
+      description:
+        "A modern SaaS application that helps freelancers, agencies, and businesses convert informal work descriptions into polished, professional invoice line items. Say goodbye to 'worked on website' and hello to 'Website Maintenance & Optimization: Comprehensive debugging and performance enhancement...'",
+      tools:
+        "Next.js, TypeScript, TailwindCSS, OpenAI API, Stripe, PostgreSQL",
+      liveLink: "https://deskribeai.vercel.app",
+      // githubLink: "Private Repository",
+    },
     {
       image: "/dozzy.png",
       title: "Dozzy",
@@ -56,81 +68,122 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-16 bg-gray-50 bg-gradient-to-br from-gray-100 to-blue-300"
+      className={`py-24 ${
+        theme === 'dark'
+          ? 'bg-gradient-to-b from-gray-800 to-gray-900'
+          : 'bg-gradient-to-b from-white to-gray-50'
+      }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            My Projects
+          <h2 className={`text-5xl lg:text-6xl font-light mb-6 ${
+            theme === 'dark' ? 'text-white' : 'text-gray-900'
+          }`}>
+            Projects
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Some of the projects I’ve worked on.
+          <p className={`text-lg md:text-xl max-w-2xl mx-auto ${
+            theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+          }`}>
+            Some of the projects I’ve worked on, showcasing my skills in web development and AI.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-white bg-gradient-to-br from-gray-100 to-blue-300 rounded-xl shadow-lg hover:shadow-xl transition-all overflow-hidden"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className={`group rounded-2xl border transition-all duration-300 overflow-hidden hover:scale-[1.02] ${
+                theme === 'dark'
+                  ? 'bg-gray-800/50 border-gray-700 hover:bg-gray-800'
+                  : 'bg-white border-gray-200 hover:shadow-xl'
+              }`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* Project Image */}
-              <div className="relative h-48">
+              <div className="relative h-64 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   priority
-                  width={500}
-                  height={500}
+                  width={600}
+                  height={400}
                 />
+                <div className={`absolute inset-0 transition-opacity duration-300 ${
+                  theme === 'dark'
+                    ? 'bg-gradient-to-t from-gray-900/60 to-transparent'
+                    : 'bg-gradient-to-t from-black/20 to-transparent'
+                }`}></div>
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <div className="p-8">
+                <h3 className={`text-2xl font-semibold mb-4 ${
+                  theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}>
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <p className="text-sm text-gray-500 mb-4">
-                  <span className="font-medium">Tools:</span> {project.tools}
+                <p className={`mb-6 leading-relaxed text-base ${
+                  theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                }`}>
+                  {project.description}
                 </p>
+                <div className={`mb-8 p-4 rounded-lg ${
+                  theme === 'dark' ? 'bg-gray-700/50' : 'bg-gray-50'
+                }`}>
+                  <p className={`text-sm ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                  }`}>
+                    <span className="font-medium">Tech Stack:</span> {project.tools}
+                  </p>
+                </div>
 
                 {/* Project Links */}
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   {project.liveLink ? (
                     <a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-blue-500 hover:text-blue-600"
+                      className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                        theme === 'dark'
+                          ? 'bg-white text-gray-900 hover:bg-gray-100'
+                          : 'bg-gray-900 text-white hover:bg-gray-800'
+                      }`}
                     >
                       <Globe className="w-5 h-5" />
-                      <span>Live</span>
+                      <span>Live Demo</span>
                     </a>
                   ) : (
-                    <span className="flex items-center gap-2 text-purple-700 cursor-not-allowed">
+                    <span className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium cursor-not-allowed ${
+                      theme === 'dark' ? 'bg-gray-700 text-gray-400' : 'bg-gray-100 text-gray-500'
+                    }`}>
                       <Globe className="w-5 h-5" />
-                      <span>Ongoing</span>
+                      <span>Coming Soon</span>
                     </span>
                   )}
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
-                  >
-                    <Github className="w-5 h-5" />
-                    <span>GitHub</span>
-                  </a>
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 border ${
+                        theme === 'dark'
+                          ? 'border-gray-600 text-gray-300 hover:bg-gray-700'
+                          : 'border-gray-300 text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      <Github className="w-5 h-5" />
+                      <span>GitHub</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

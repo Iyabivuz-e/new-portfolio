@@ -6,29 +6,69 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light theme variables */
+  --background-light: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  --background-secondary-light: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  --text-primary-light: #111827;
+  --text-secondary-light: #6b7280;
+  --accent-light: linear-gradient(135deg, #374151 0%, #111827 100%);
+
+  /* Dark theme variables */
+  --background-dark: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  --background-secondary-dark: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  --text-primary-dark: #f9fafb;
+  --text-secondary-dark: #d1d5db;
+  --accent-dark: linear-gradient(135deg, #d1d5db 0%, #f9fafb 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.light {
+  --background: var(--background-light);
+  --background-secondary: var(--background-secondary-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --accent: var(--accent-light);
+}
+
+.dark {
+  --background: var(--background-dark);
+  --background-secondary: var(--background-secondary-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --accent: var(--accent-dark);
 }
 
 body {
-  color: var(--background);
-  background: var(--foreground);
+  background: var(--background);
+  color: var(--text-primary);
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  transition: background 0.3s ease, color 0.3s ease;
+}
 
+/* Custom gradient utilities */
+.bg-gradient-light {
+  background: var(--background);
+}
+
+.bg-gradient-secondary-light {
+  background: var(--background-secondary);
+}
+
+.text-gradient {
+  background: var(--accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Animations */
-
 @keyframes changeText {
   0% { content: "Software Developer"; }
-  33% { content: "Fronted Developer"; }
+  33% { content: "Frontend Developer"; }
   66% { content: "Backend Developer"; }
   100% { content: "AI/ML Admirer"; }
 }
@@ -36,4 +76,17 @@ body {
 .role-text::after {
   content: "";
   animation: changeText 6s infinite steps(1);
+}
+
+/* Modern glassmorphism effect */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.dark .glass {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
