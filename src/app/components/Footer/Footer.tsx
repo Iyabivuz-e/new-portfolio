@@ -75,7 +75,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm">{process.env.NEXT_PUBLIC_PHONE || "+39 351 588 8888"}</span>
+                <span className="text-sm">{process.env.NEXT_PUBLIC_PHONE || ""}</span>
               </div>
             </div>
           </div>
