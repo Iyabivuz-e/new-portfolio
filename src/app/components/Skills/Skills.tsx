@@ -23,13 +23,13 @@ const Skills = () => {
       icon: <Database className="w-8 h-8 text-green-500" />,
       title: "Database Management",
       description: "Working with structured and unstructured data.",
-      tools: "MongoDB, SQL, PostgreSQL, Firebase",
+      tools: "MongoDB, SQL, PostgreSQL",
     },
     {
       icon: <Cpu className="w-8 h-8 text-orange-500" />,
       title: "AI/ML Enthusiast",
       description: "Exploring machine learning and AI technologies.",
-      tools: "TensorFlow, PyTorch, Scikit-learn",
+      tools: "TensorFlow, PyTorch, Scikit-learn, Generative AI, Agentic AI, MCP",
     },
     {
       icon: <GitBranch className="w-8 h-8 text-pink-500" />,

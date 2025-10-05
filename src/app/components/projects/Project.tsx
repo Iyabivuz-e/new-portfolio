@@ -117,16 +117,35 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* Project Image */}
-              <div className="relative h-64 overflow-hidden rounded-t-2xl">
+              <div className="relative h-64 overflow-hidden rounded-t-2xl bg-gray-100 dark:bg-gray-800">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
-                  priority
-                  width={600}
-                  height={400}
+                  className="w-full h-full object-cover object-center"
+                  style={{
+                    transition: 'transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s cubic-bezier(0.16, 1, 0.3, 1)',
+                    willChange: 'transform',
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'translateZ(0) scale3d(1, 1, 1)',
+                    WebkitTransform: 'translateZ(0) scale3d(1, 1, 1)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateZ(0) scale3d(1.08, 1.08, 1)';
+                    e.currentTarget.style.filter = 'brightness(1.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateZ(0) scale3d(1, 1, 1)';
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  priority={index < 2}
+                  width={800}
+                  height={533}
+                  quality={90}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/VK/g"
                 />
-                <div className={`absolute inset-0 transition-opacity duration-500 ease-out ${
+                <div className={`absolute inset-0 transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   theme === 'dark'
                     ? 'bg-gradient-to-t from-gray-900/60 to-transparent'
                     : 'bg-gradient-to-t from-black/20 to-transparent'

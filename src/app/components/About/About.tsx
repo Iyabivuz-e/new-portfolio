@@ -45,15 +45,33 @@ const About = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="w-64 h-64 relative">
+              <div className={`w-64 h-64 relative overflow-hidden rounded-2xl cursor-pointer ${
+                theme === 'dark' ? 'border border-gray-700' : 'border border-gray-200'
+              }`}>
                 <Image
                   src="/pic.jpg"
                   alt="Dieudonne"
-                  className={`w-full h-full object-cover rounded-2xl ${
-                    theme === 'dark' ? 'border border-gray-700' : 'border border-gray-200'
-                  }`}
-                  width={500}
-                  height={500}
+                  className="w-full h-full object-cover object-center"
+                  style={{
+                    transition: 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)',
+                    willChange: 'transform',
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'translateZ(0) scale3d(1, 1, 1)',
+                    WebkitTransform: 'translateZ(0) scale3d(1, 1, 1)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateZ(0) scale3d(1.08, 1.08, 1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateZ(0) scale3d(1, 1, 1)';
+                  }}
+                  width={512}
+                  height={512}
+                  quality={95}
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/VK/g"
                 />
               </div>
             </motion.div>

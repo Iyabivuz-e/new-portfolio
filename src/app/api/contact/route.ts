@@ -9,9 +9,6 @@ const contactFormSchema = z.object({
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
-// Initialize Resend
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   try {
     // Parse request body
@@ -22,8 +19,18 @@ export async function POST(request: NextRequest) {
 
     // Check for required environment variables
     if (!process.env.RESEND_API_KEY) {
-      throw new Error("Missing RESEND_API_KEY environment variable");
+      console.error("Missing RESEND_API_KEY environment variable");
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Email service is not configured. Please contact the administrator.",
+        },
+        { status: 500 }
+      );
     }
+
+    // Initialize Resend with API key
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
