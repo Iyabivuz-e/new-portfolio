@@ -107,7 +107,7 @@ const About = () => {
                 {['Coding', 'Design', 'Problem Solving', 'AI/ML', 'Databases', 'Systems'].map((skill, index) => (
                   <div
                     key={skill}
-                    className={`text-center py-3 px-4 rounded-lg border transition-all hover:scale-105 ${
+                    className={`text-center py-3 px-4 rounded-lg border cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-4px] hover:shadow-md ${
                       theme === 'dark'
                         ? 'bg-gray-800 border-gray-700 text-gray-300'
                         : 'bg-gray-50 border-gray-200 text-gray-700'
@@ -127,7 +127,7 @@ const About = () => {
               >
                 <button
                   onClick={() => scrollToSection("contact")}
-                  className={`px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                  className={`px-8 py-4 rounded-lg font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-4px] hover:shadow-lg ${
                     theme === 'dark'
                       ? 'bg-white text-gray-900 hover:bg-gray-100'
                       : 'bg-gray-900 text-white hover:bg-gray-800'

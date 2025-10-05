@@ -85,7 +85,7 @@ const Experience = () => {
               {workExperience.map((exp, index) => (
                 <motion.div
                   key={index}
-                  className={`group relative p-6 rounded-xl border transition-all duration-300 hover:scale-[1.02] ${
+                  className={`group relative p-6 rounded-xl border cursor-pointer transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-xl ${
                     theme === 'dark'
                       ? 'bg-gray-800/50 border-gray-700 hover:bg-gray-800'
                       : 'bg-white border-gray-200 hover:shadow-lg'
@@ -137,10 +137,10 @@ const Experience = () => {
                   </div>
 
                   {/* Subtle hover indicator */}
-                  <div className={`absolute top-0 left-0 w-1 h-full rounded-l-xl transition-all duration-300 ${
+                  <div className={`absolute top-0 left-0 w-1 h-full rounded-l-xl transition-all duration-500 ease-out ${
                     theme === 'dark'
-                      ? 'bg-gray-600 group-hover:bg-white'
-                      : 'bg-gray-200 group-hover:bg-gray-900'
+                      ? 'bg-gray-600 group-hover:bg-white group-hover:w-2'
+                      : 'bg-gray-200 group-hover:bg-gray-900 group-hover:w-2'
                   }`}></div>
                 </motion.div>
               ))}
@@ -158,7 +158,7 @@ const Experience = () => {
               {education.map((exp, index) => (
                 <motion.div
                   key={index}
-                  className={`group relative p-6 rounded-xl border transition-all duration-300 hover:scale-[1.02] ${
+                  className={`group relative p-6 rounded-xl border cursor-pointer transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-xl ${
                     theme === 'dark'
                       ? 'bg-gray-800/50 border-gray-700 hover:bg-gray-800'
                       : 'bg-white border-gray-200 hover:shadow-lg'
@@ -210,10 +210,10 @@ const Experience = () => {
                   </div>
 
                   {/* Subtle hover indicator */}
-                  <div className={`absolute top-0 left-0 w-1 h-full rounded-l-xl transition-all duration-300 ${
+                  <div className={`absolute top-0 left-0 w-1 h-full rounded-l-xl transition-all duration-500 ease-out ${
                     theme === 'dark'
-                      ? 'bg-gray-600 group-hover:bg-white'
-                      : 'bg-gray-200 group-hover:bg-gray-900'
+                      ? 'bg-gray-600 group-hover:bg-white group-hover:w-2'
+                      : 'bg-gray-200 group-hover:bg-gray-900 group-hover:w-2'
                   }`}></div>
                 </motion.div>
               ))}

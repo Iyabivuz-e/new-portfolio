@@ -77,7 +77,7 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              className={`p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group ${
+              className={`p-8 rounded-2xl shadow-lg hover:shadow-2xl cursor-pointer transition-all duration-500 ease-out hover:translate-y-[-8px] group ${
                 theme === 'dark'
                   ? 'bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600'
                   : 'bg-gradient-to-br from-white to-gray-50 border border-gray-200'
@@ -86,7 +86,7 @@ const Skills = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <div className={`flex items-center justify-center w-16 h-16 mb-6 rounded-2xl transition-all group-hover:scale-110 ${
+              <div className={`flex items-center justify-center w-16 h-16 mb-6 rounded-2xl transition-all duration-400 ease-out group-hover:scale-110 group-hover:rotate-6 ${
                 theme === 'dark' ? 'bg-slate-700' : 'bg-gray-100'
               }`}>
                 {skill.icon}

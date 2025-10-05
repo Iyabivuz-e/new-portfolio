@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import * as z from "zod";
 
 // Input validation schema
@@ -8,6 +8,9 @@ const contactFormSchema = z.object({
   email: z.string().email("Invalid email address"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
+
+// Initialize Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -18,29 +21,15 @@ export async function POST(request: NextRequest) {
     const { name, email, message } = contactFormSchema.parse(body);
 
     // Check for required environment variables
-    if (
-      !process.env.EMAIL_USER ||
-      !process.env.EMAIL_PASS ||
-      !process.env.RECIPIENT_EMAIL
-    ) {
-      throw new Error("Missing required environment variables");
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error("Missing RESEND_API_KEY environment variable");
     }
 
-    // Configure Nodemailer transporter
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    // Email options with HTML template
-    const mailOptions = {
-      from: `"Contact Form" <${process.env.EMAIL_USER}>`,
-      to: process.env.RECIPIENT_EMAIL,
+    // Send email using Resend
+    const { data, error } = await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: ["iyabivuzed@gmail.com"],
       subject: `New Contact Message from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
           <h2 style="color: #333;">New Contact Form Submission</h2>
@@ -48,16 +37,27 @@ export async function POST(request: NextRequest) {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Message:</strong></p>
           <p style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #0070f3;">${message}</p>
+          <hr style="margin: 20px 0; border: none; border-top: 1px solid #eaeaea;" />
+          <p style="color: #666; font-size: 14px;">Reply to: ${email}</p>
         </div>
       `,
-    };
+      replyTo: email,
+    });
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Failed to send email. Please try again later.",
+        },
+        { status: 500 }
+      );
+    }
 
     // Return success response
     return NextResponse.json(
-      { success: true, message: "Email sent successfully" },
+      { success: true, message: "Email sent successfully", data },
       { status: 200 }
     );
   } catch (error) {

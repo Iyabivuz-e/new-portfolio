@@ -19,34 +19,23 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/dieudonne-iyabivuze-b5b1b3252/",
+      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/iyabivuze/",
       icon: <Linkedin className="w-5 h-5" />,
       label: "LinkedIn Profile",
     },
     {
       name: "GitHub",
-      href: "https://github.com/Iyabivuz-e",
+      href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Iyabivuz-e",
       icon: <Github className="w-5 h-5" />,
       label: "GitHub Profile",
     },
     {
       name: "Twitter",
-      href: "https://x.com/dieudonnei_",
+      href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/dieudonnei_",
       icon: <Twitter className="w-5 h-5" />,
       label: "Twitter Profile",
     },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/dieudonnei_/",
-      icon: <Instagram className="w-5 h-5" />,
-      label: "Instagram Profile",
-    },
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/dieudonne.iyabivuze.5",
-      icon: <Facebook className="w-5 h-5" />,
-      label: "Facebook Profile",
-    },
+    
   ];
 
   return (
@@ -82,11 +71,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">dieudonnei@gmail.com</span>
+                <span className="text-sm">{process.env.NEXT_PUBLIC_EMAIL || "iyabivuzed@gmail.com"}</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm">+39 351 5 8 8 8 8 8 8</span>
+                <span className="text-sm">{process.env.NEXT_PUBLIC_PHONE || "+39 351 588 8888"}</span>
               </div>
             </div>
           </div>
@@ -105,7 +94,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-2 rounded-lg border transition-all hover:scale-110 ${
+                  className={`p-2 rounded-lg border cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-4px] hover:shadow-md ${
                     theme === 'dark'
                       ? 'border-gray-700 hover:bg-gray-800'
                       : 'border-gray-200 hover:bg-gray-50'

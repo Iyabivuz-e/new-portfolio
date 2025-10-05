@@ -60,7 +60,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("hero")}
-              className={`px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
+              className={`px-4 py-2 text-sm font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-2px] ${
                 theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -68,7 +68,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className={`px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
+              className={`px-4 py-2 text-sm font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-2px] ${
                 theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -76,7 +76,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => scrollToSection("skills")}
-              className={`px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
+              className={`px-4 py-2 text-sm font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-2px] ${
                 theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -84,7 +84,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => scrollToSection("projects")}
-              className={`px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
+              className={`px-4 py-2 text-sm font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-2px] ${
                 theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -92,7 +92,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className={`px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
+              className={`px-4 py-2 text-sm font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-2px] ${
                 theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -131,7 +131,7 @@ const Navbar = () => {
           >
             <button
               onClick={() => scrollToSection("hero")}
-              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${
+              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${
                 theme === 'dark'
                   ? 'text-gray-300 hover:text-blue-400 hover:bg-slate-700/50'
                   : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100/50'
@@ -142,7 +142,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${
+              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${
                 theme === 'dark'
                   ? 'text-gray-300 hover:text-blue-400 hover:bg-slate-700/50'
                   : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100/50'
@@ -153,7 +153,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => scrollToSection("skills")}
-              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${
+              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${
                 theme === 'dark'
                   ? 'text-gray-300 hover:text-blue-400 hover:bg-slate-700/50'
                   : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100/50'
@@ -164,7 +164,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => scrollToSection("projects")}
-              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${
+              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${
                 theme === 'dark'
                   ? 'text-gray-300 hover:text-blue-400 hover:bg-slate-700/50'
                   : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100/50'
@@ -175,7 +175,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${
+              className={`w-full flex items-center gap-2 px-4 py-3 rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${
                 theme === 'dark'
                   ? 'text-gray-300 hover:text-blue-400 hover:bg-slate-700/50'
                   : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100/50'

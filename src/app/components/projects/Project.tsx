@@ -8,6 +8,16 @@ const Projects = () => {
   const { theme } = useTheme();
   const projects = [
     {
+      image: "/ai-paper.png",
+      title: "AI Paper Explainer",
+      description:
+        "An intelligent research paper analysis tool that transforms complex academic papers into digestible insights. Using advanced AI and RAG (Retrieval Augmented Generation), it provides serious analysis, intuitive explanations, and makes research accessible to everyone. Perfect for researchers, students, and curious minds wanting to quickly grasp paper concepts.",
+      tools:
+        "Next.js, TailwindCSS, LangChain, LangGraph, RAG, PostgreSQL (NeonDB), ChromaDB, Arxiv API, Groq",
+      liveLink: "https://ai-paper-explainer.vercel.app/",
+      githubLink: "https://github.com/Iyabivuz-e/paper_sum",
+    },
+    {
       image: "/deskribeai.png",
       title: "Deskribeai",
       description:
@@ -97,7 +107,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className={`group rounded-2xl border transition-all duration-300 overflow-hidden hover:scale-[1.02] ${
+              className={`group rounded-2xl border cursor-pointer transition-all duration-500 ease-out overflow-hidden hover:translate-y-[-8px] hover:shadow-2xl ${
                 theme === 'dark'
                   ? 'bg-gray-800/50 border-gray-700 hover:bg-gray-800'
                   : 'bg-white border-gray-200 hover:shadow-xl'
@@ -107,16 +117,16 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* Project Image */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-64 overflow-hidden rounded-t-2xl">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
                   priority
                   width={600}
                   height={400}
                 />
-                <div className={`absolute inset-0 transition-opacity duration-300 ${
+                <div className={`absolute inset-0 transition-opacity duration-500 ease-out ${
                   theme === 'dark'
                     ? 'bg-gradient-to-t from-gray-900/60 to-transparent'
                     : 'bg-gradient-to-t from-black/20 to-transparent'
@@ -152,7 +162,7 @@ const Projects = () => {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                      className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-3px] hover:shadow-lg ${
                         theme === 'dark'
                           ? 'bg-white text-gray-900 hover:bg-gray-100'
                           : 'bg-gray-900 text-white hover:bg-gray-800'
@@ -162,7 +172,7 @@ const Projects = () => {
                       <span>Live Demo</span>
                     </a>
                   ) : (
-                    <span className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium cursor-not-allowed ${
+                    <span className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium cursor-not-allowed opacity-60 ${
                       theme === 'dark' ? 'bg-gray-700 text-gray-400' : 'bg-gray-100 text-gray-500'
                     }`}>
                       <Globe className="w-5 h-5" />
@@ -174,7 +184,7 @@ const Projects = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 border ${
+                      className={`inline-flex items-center justify-center gap-3 px-6 py-3 rounded-lg font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-3px] hover:shadow-lg border ${
                         theme === 'dark'
                           ? 'border-gray-600 text-gray-300 hover:bg-gray-700'
                           : 'border-gray-300 text-gray-700 hover:bg-gray-50'

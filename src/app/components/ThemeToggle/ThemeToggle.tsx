@@ -10,12 +10,12 @@ const ThemeToggle = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className={`relative p-3 rounded-lg transition-all duration-300 ${
+      className={`relative p-3 rounded-lg cursor-pointer transition-all duration-400 ease-out hover:shadow-md ${
         theme === 'dark'
           ? 'bg-gray-800 hover:bg-gray-700 text-white'
           : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
       }`}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"
     >
@@ -24,7 +24,7 @@ const ThemeToggle = () => {
         animate={{
           rotate: theme === 'dark' ? 180 : 0,
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
         className="w-5 h-5"
       >
         {theme === 'light' ? (

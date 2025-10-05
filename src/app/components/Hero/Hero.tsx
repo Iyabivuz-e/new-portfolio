@@ -104,7 +104,7 @@ const Hero = () => {
               <Link
                 href="https://drive.google.com/file/d/1WTlPo1F5hVSeNjaY27vehJjp4AvVMaGr/view?usp=sharing"
                 target="_blank"
-                className={`inline-flex items-center gap-3 px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                className={`inline-flex items-center gap-3 px-8 py-4 rounded-lg font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-4px] hover:shadow-lg ${
                   theme === 'dark'
                     ? 'bg-white text-gray-900 hover:bg-gray-100'
                     : 'bg-gray-900 text-white hover:bg-gray-800'
@@ -115,7 +115,7 @@ const Hero = () => {
               </Link>
               <button
                 onClick={() => scrollToSection("contact")}
-                className={`inline-flex items-center gap-3 px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
+                className={`inline-flex items-center gap-3 px-8 py-4 rounded-lg font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-4px] hover:shadow-lg ${
                   theme === 'dark'
                     ? 'border border-gray-600 text-gray-300 hover:bg-gray-800'
                     : 'border border-gray-300 text-gray-700 hover:bg-gray-50'

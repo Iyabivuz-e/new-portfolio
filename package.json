@@ -17,9 +17,9 @@
     "framer-motion": "^12.4.10",
     "lucide-react": "^0.477.0",
     "next": "14.2.3",
-    "nodemailer": "^6.10.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "resend": "^6.1.2",
     "sharp": "^0.34.3",
     "typed.js": "^2.1.0",
     "zod": "^3.24.2"
@@ -28,7 +28,6 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.17.23",
-    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

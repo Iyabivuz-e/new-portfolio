@@ -123,10 +123,10 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 ${
+                      className={`w-full px-4 py-3 rounded-lg border cursor-text transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 ${
                         theme === 'dark'
-                          ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500'
-                          : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400'
+                          ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500 focus:border-gray-500'
+                          : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400 focus:border-gray-400'
                       }`}
                       placeholder="Your name"
                     />
@@ -144,10 +144,10 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 ${
+                      className={`w-full px-4 py-3 rounded-lg border cursor-text transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 ${
                         theme === 'dark'
-                          ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500'
-                          : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400'
+                          ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500 focus:border-gray-500'
+                          : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400 focus:border-gray-400'
                       }`}
                       placeholder="your.email@example.com"
                     />
@@ -166,10 +166,10 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 resize-none ${
+                    className={`w-full px-4 py-3 rounded-lg border cursor-text transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 resize-none ${
                       theme === 'dark'
-                        ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500'
-                        : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400'
+                        ? 'bg-gray-700 border-gray-600 text-white focus:ring-gray-500 focus:border-gray-500'
+                        : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-gray-400 focus:border-gray-400'
                     }`}
                     placeholder="Tell me about your project..."
                   />
@@ -177,7 +177,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${
+                  className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-medium cursor-pointer transition-all duration-400 ease-out hover:translate-y-[-4px] hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none ${
                     theme === 'dark'
                       ? 'bg-white text-gray-900 hover:bg-gray-100'
                       : 'bg-gray-900 text-white hover:bg-gray-800'
